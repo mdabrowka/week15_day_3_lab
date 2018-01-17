@@ -1,4 +1,5 @@
 import React from 'react';
+import Square from './Square.js';
 
 class SquareDisplay extends React.Component {
 
@@ -13,19 +14,19 @@ class SquareDisplay extends React.Component {
               <th></th>
             </tr>
             <tr>
-              <td>X</td>
-              <td>X</td>
-              <td>X</td>
+              <Square index={0} handleSquareClick={this.props.handleSquareClick} token={this.props.squares[0]}/>
+              <Square index={1} handleSquareClick={this.props.handleSquareClick} token={this.props.squares[1]}/>
+              <Square index={2} handleSquareClick={this.props.handleSquareClick} token={this.props.squares[2]}/>
             </tr>
             <tr>
-              <td>X</td>
-              <td>X</td>
-              <td>X</td>
+              <Square/>
+              <Square/>
+            <Square/>
             </tr>
             <tr>
-              <td>X</td>
-              <td>X</td>
-              <td>X</td>
+              <Square/>
+              <Square/>
+              <Square/>
             </tr>
           </tbody>
         </table>

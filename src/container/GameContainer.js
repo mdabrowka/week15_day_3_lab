@@ -7,9 +7,10 @@ class GameContainer extends React.Component {
     super(props);
     this.state = {
       token: "x",
-      squares: ["","","","","","","","",""]
+      squares: [" "," "," "," "," "," "," "," "," "]
     }
   this.setPlayer = this.setPlayer.bind(this);
+  this.handleSquareClick = this.handleSquareClick.bind(this);
   }
 
 
@@ -27,11 +28,20 @@ class GameContainer extends React.Component {
     })
   }
 
+  handleSquareClick(index) {
+    const newSquares = Array.from(this.state.squares);
+    newSquares[index] = this.state.token;
+    this.setState({ squares: newSquares });
+    console.log(this.state.squares[index]);
+    this.setPlayer();
+  }
+
   render() {
     return (
       <div>
         <h2>Tic Tac Toe</h2>
-        <SquareDisplay className="square-display"/>
+        <SquareDisplay className="square-display" squares={this.state.squares} handleSquareClick={this.handleSquareClick}/>
+
         <button className="button" onClick={this.setPlayer}>X or O?</button>
       </div>
     )
